@@ -1,0 +1,130 @@
+:root{
+    --background-color: #3A4764;
+    --text-color1:#F2EDE9;
+    --text-color2:#444B5A;
+    --text-color3:#5E6371;
+    --value-background:#182034;
+    --button-container-background:#232C43;
+    --button-bg:#F2EDE9;
+    --button--bg-accent:#bdbcbc;
+    --button-dlt-bg:#5E6D8C;
+    --button-dlt-bg-accent:#353e50;
+    --button-rst-bg:#5E6D8C;
+    --button-rst-bg-accent:#353e50;
+    --button-eql-bg:#D94032;
+    --button-eql-bg-accent:#8C241B;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background:var(--background-color);
+}
+#root{
+    display: flex;
+    justify-content: center;
+}
+.calculator-continer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+/* Header */
+.header{
+    display: flex;
+    justify-content: space-between;
+}
+.header__title{
+    font-size: 25px;
+    font-family: "Roboto","sans-serif";
+    font-weight: 500;
+    color: var(--text-color1);
+}
+/* Value */
+.value-container{
+    background: var(--value-background);
+    margin: 10px 0px;
+    min-height: 110px;
+    border-radius: 5px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 5px;
+}
+.previous__value{
+    font-size: 20px;
+    font-weight: 700;
+    font-family: "Roboto","sans-serif";
+    color: var(--text-color3);
+    margin: 10px 0 3px;
+}
+.current__value{
+    font-size: 40px;
+    font-weight: 700;
+    font-family: "Roboto","sans-serif";
+    color: var(--text-color1);
+}
+
+.settings-icon{
+    cursor: pointer;
+    color: var(--button-bg);
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+/* Buttons */
+.button-container{
+    background-color: var(--button-container-background);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 5px;
+}
+.button-row{
+    display: flex;
+}
+.button{
+    height: 55px;
+    margin: 10px;
+    border-radius: 8px;
+    border: none;
+    font-size: 23px;
+    font-family: "Roboto","sans-serif";
+    font-weight: 700;
+}
+.small-button{
+    width: 85px;
+}
+.big-button{
+    width: 189px;
+}
+.delete, .reset,.equal{
+    color: var(--text-color1);
+}
+.normal-button{
+    background: var(--button-bg);
+    box-shadow: 0px 5px 1px 0px var(--button--bg-accent);
+    color: var(--text-color2);
+    font-size: 30px;
+}
+.delete{
+    background-color: var(--button-dlt-bg);
+    box-shadow: 0px 5px 1px 0px var(--button-dlt-bg-accent);
+}
+.reset{
+    background: var(--button-rst-bg);
+    box-shadow: 0px 5px 1px 0px var(--button-rst-bg-accent);
+}
+.equal{
+    background: var(--button-eql-bg);
+    box-shadow: 0px 5px 1px 0px var(--button-eql-bg-accent);
+}
