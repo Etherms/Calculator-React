@@ -1,18 +1,18 @@
 :root{
-    --background-color: #3A4764;
-    --text-color1:#F2EDE9;
-    --text-color2:#444B5A;
-    --text-color3:#5E6371;
-    --value-background:#182034;
-    --button-container-background:#232C43;
-    --button-bg:#F2EDE9;
-    --button--bg-accent:#bdbcbc;
-    --button-dlt-bg:#5E6D8C;
-    --button-dlt-bg-accent:#353e50;
-    --button-rst-bg:#5E6D8C;
-    --button-rst-bg-accent:#353e50;
-    --button-eql-bg:#D94032;
-    --button-eql-bg-accent:#8C241B;
+    --background-color: #d9d9d9;
+    --other-button-color:#F2EDE9;
+    --button-color:#0C7382;
+    --c-value-color:#35352c;
+    --t-value-color:rgb(166, 157, 145);
+    --value-background:#ededed;
+    --button-container-background:#d1cccc;
+    --button-bg:#D6D6D6;
+    --button--bg-accent:hsl(0, 1%, 60%);
+    --button-eqtn-bg:#0c7383;
+    --button-eqtn-accent-bg:hsl(188, 83%, 20%);
+    --button-eql-bg:#A63838;
+    --button-eql-accent-bg:hsl(0, 50%, 36%);
+
 }
 *{
     margin: 0;
@@ -62,19 +62,19 @@ body{
     font-size: 20px;
     font-weight: 700;
     font-family: "Roboto","sans-serif";
-    color: var(--text-color3);
+    color: var(--t-value-color);
     margin: 10px 0 3px;
 }
 .current__value{
     font-size: 40px;
     font-weight: 700;
     font-family: "Roboto","sans-serif";
-    color: var(--text-color1);
+    color: var(--c-value-color);
 }
 
 .settings-icon{
     cursor: pointer;
-    color: var(--button-bg);
+    color: var(--t-value-color);
     position: absolute;
     top: 5px;
     left: 5px;
@@ -92,39 +92,26 @@ body{
 .button-row{
     display: flex;
 }
-.button{
+button{
     height: 55px;
+    width: 70px;
     margin: 10px;
-    border-radius: 8px;
+    border-radius: 15px;
     border: none;
     font-size: 23px;
-    font-family: "Roboto","sans-serif";
+    font-family: Roboto,"sans-serif";
     font-weight: 700;
+    box-shadow: 0 5px 1px 0 var(--button--bg-accent);
+    color: var(--button-color);
 }
-.small-button{
-    width: 85px;
+.equation-button{
+    background: var(--button-eqtn-bg);
+    color: var(--other-button-color);
+    box-shadow: 0 5px 1px 0 var(--button-eqtn-accent-bg);
+
 }
-.big-button{
-    width: 189px;
-}
-.delete, .reset,.equal{
-    color: var(--text-color1);
-}
-.normal-button{
-    background: var(--button-bg);
-    box-shadow: 0px 5px 1px 0px var(--button--bg-accent);
-    color: var(--text-color2);
-    font-size: 30px;
-}
-.delete{
-    background-color: var(--button-dlt-bg);
-    box-shadow: 0px 5px 1px 0px var(--button-dlt-bg-accent);
-}
-.reset{
-    background: var(--button-rst-bg);
-    box-shadow: 0px 5px 1px 0px var(--button-rst-bg-accent);
-}
-.equal{
+.total-button{
     background: var(--button-eql-bg);
-    box-shadow: 0px 5px 1px 0px var(--button-eql-bg-accent);
+    color: var(--other-button-color);
+    box-shadow: 0 5px 1px 0 var(--button-eql-accent-bg);
 }
