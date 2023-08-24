@@ -1,11 +1,6 @@
 import React from "react";
 
 export default function Header(){
-    const cart = [5, 15, 25];
-const total = cart.reduce((acc, cost) => acc + cost, 0);
-const withTax = cart.map((cost) => cost * 1.2);
-console.log(total);
-console.log(withTax)
     return(
         <div className="header">
             <h3 className="header__title">CALCULATOR</h3>

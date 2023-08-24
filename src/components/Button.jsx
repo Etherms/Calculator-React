@@ -2,26 +2,42 @@ import { useEffect } from "react";
 import React from 'react'
 
 
-export default function  Button  () {
+const Button = ({ onClick }) => {
         useEffect(() => {
                 const equationButtons = document.querySelectorAll(".equation-button");
+                const numberButtons = document.querySelectorAll(".number-button");
+                const totalButton = document.querySelectorAll(".total-button");
         
-                const handleClick = (event) => {
-                    const clickedButton = event.target;
-                    alert(clickedButton.textContent);
-                };
+        const handleClick = (event) => {
+                const clickedButton = event.target;
+                const buttonValue = clickedButton.textContent;
+                onClick(buttonValue); // Pass the value to the parent's handler
+        };
         
                 equationButtons.forEach(button => {
-                    button.addEventListener('click', handleClick);
+                        button.addEventListener('click', handleClick);
                 });
-        
-                // // Clean up the event listeners when the component unmounts
-                // return () => {
-                //     equationButtons.forEach(button => {
-                //         button.removeEventListener('click', handleClick);
-                //     });
-                // };
-            }, []);
+                numberButtons.forEach(button => {
+                        button.addEventListener('click', handleClick);
+                });
+                totalButton.forEach(button => {
+                        button.addEventListener('click', handleClick);
+                });
+
+          // Clean up the event listeners when the component unmounts
+        return () => {
+                equationButtons.forEach(button => {
+                button.removeEventListener('click', handleClick);
+        });
+                numberButtons.forEach(button => {
+                        button.removeEventListener('click', handleClick);
+                });
+                totalButton.forEach(button => {
+                        button.removeEventListener('click', handleClick);
+                });
+        };
+        }, [onClick]);      
+
 return(
         <div className='button-container'>
                 <div className="button-row row-5">
@@ -45,9 +61,9 @@ return(
                         <button id="subtract" className="equation-button">-</button>
                 </div>
                 <div className="button-row row-2">
-                        <button id="one" className="number-button">4</button>
-                        <button id="two" className="number-button">5</button>
-                        <button id="three" className="number-button">6</button>
+                        <button id="one" className="number-button">1</button>
+                        <button id="two" className="number-button">2</button>
+                        <button id="three" className="number-button">3</button>
                         <button id="addition" className="equation-button">+</button>
                 </div>
                 <div className='button-row row-1'>
@@ -58,5 +74,5 @@ return(
                 </div>
         </div>
         )
-}
-
+};
+export default Button;
