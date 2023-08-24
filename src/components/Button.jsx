@@ -7,70 +7,116 @@ const Button = ({ onClick }) => {
                 const equationButtons = document.querySelectorAll(".equation-button");
                 const numberButtons = document.querySelectorAll(".number-button");
                 const totalButton = document.querySelectorAll(".total-button");
-        
-        const handleClick = (event) => {
-                const clickedButton = event.target;
-                const buttonValue = clickedButton.textContent;
-                onClick(buttonValue); // Pass the value to the parent's handler
-        };
-        
-                equationButtons.forEach(button => {
-                        button.addEventListener('click', handleClick);
-                });
-                numberButtons.forEach(button => {
-                        button.addEventListener('click', handleClick);
-                });
-                totalButton.forEach(button => {
-                        button.addEventListener('click', handleClick);
-                });
 
-          // Clean up the event listeners when the component unmounts
-        return () => {
+        
+                const handleClick = (buttonValue) => {
+                    onClick(buttonValue); // Pass the value to the parent's handler
+                };
+        
+                const handleKeyDown = (event) => {
+                        const pressedKey = event.key;
+                        console.log(pressedKey);
+                    
+                        // Define a mapping of key names or key codes to corresponding classes
+                        const keyClassMap = {
+                                '1': 'key-1',
+                                '2': 'key-2',
+                                '3': 'key-3',
+                                '4': 'key-4',
+                                '5': 'key-5',
+                                '6': 'key-6',
+                                '7': 'key-7',
+                                '8': 'key-8',
+                                '9': 'key-9',
+                                '0': 'key-0',
+                                '/': 'key-divide',
+                                '*': 'key-multiply',
+                                '-': 'key-minus',
+                                '+': 'key-plus',
+                                'c': 'key-reset',
+                                '=': 'key-equals',
+                                '%': 'key-%',
+                                'Backspace': 'key-backspace', // Mapping for Backspace key
+                                'Escape': 'key-escape',       // Mapping for Escape (Esc) key
+                                'Enter': 'key-enter',
+                                '.': 'key-.'
+                            // Add more mappings for other keys
+                        };
+
+                        const correspondingClass = keyClassMap[pressedKey];
+
+                        if (correspondingClass) {
+                                const correspondingButton = document.querySelector(`.${correspondingClass}`);
+                                handleClick(correspondingButton.textContent);
+                        }
+                };
+        
                 equationButtons.forEach(button => {
-                button.removeEventListener('click', handleClick);
-        });
+                    button.addEventListener('click', () => handleClick(button.textContent));
+                });
+        
                 numberButtons.forEach(button => {
-                        button.removeEventListener('click', handleClick);
+                    button.addEventListener('click', () => handleClick(button.textContent));
                 });
+        
                 totalButton.forEach(button => {
-                        button.removeEventListener('click', handleClick);
+                    button.addEventListener('click', () => handleClick(button.textContent));
                 });
-        };
-        }, [onClick]);      
+        
+                // Attach keydown event listener to the document
+                document.addEventListener("keydown", handleKeyDown);
+        
+                // Clean up the event listeners when the component unmounts
+                return () => {
+                    equationButtons.forEach(button => {
+                        button.removeEventListener('click', () => handleClick(button.textContent));
+                    });
+        
+                    numberButtons.forEach(button => {
+                        button.removeEventListener('click', () => handleClick(button.textContent));
+                    });
+        
+                    totalButton.forEach(button => {
+                        button.removeEventListener('click', () => handleClick(button.textContent));
+                    });
+        
+                    document.removeEventListener("keydown", handleKeyDown);
+                };
+            }, [onClick]);    
 
 return(
         <div className='button-container'>
                 <div className="button-row row-5">
-                        <button id="reset" className='equation-button'>C</button>
-                        <button id="percentage" className='equation-button'>%</button>
-                        <button id="delete" className='equation-button'><span className="material-symbols-outlined">
+                        <button id="r" className='equation-button key-reset key-escape'>C</button>
+                        <button id="%" className='equation-button key-%'>%</button>
+                        <button id="<" className='equation-button key-backspace'><span className="material-symbols-outlined">
                         backspace
                         </span></button>
-                        <button id="divide" className='equation-button'>÷</button>
+                        <button id="/" className='equation-button key-divide'>÷</button>
                 </div>
                 <div className="button-row row-4">
-                        <button id="seven" className="number-button">7</button>
-                        <button id="eight" className="number-button">8</button>
-                        <button id="nine" className="number-button">9</button>
-                        <button id="multiply" className="equation-button">X</button>
+                        <button className="number-button key-7">7</button>
+                        <button className="number-button key-8">8</button>
+                        <button className="number-button key-9">9</button>
+                        <button id="*" className="equation-button key-multiply">X</button>
                 </div>
                 <div className="button-row row-3">
-                        <button id="four" className="number-button">4</button>
-                        <button id="five" className="number-button">5</button>
-                        <button id="six" className="number-button">6</button>
-                        <button id="subtract" className="equation-button">-</button>
+                        <button className="number-button key-4">4</button>
+                        <button className="number-button key-5">5</button>
+                        <button className="number-button key-6">6</button>
+                        <button id="-" className="equation-button key-minus">-</button>
                 </div>
                 <div className="button-row row-2">
-                        <button id="one" className="number-button">1</button>
-                        <button id="two" className="number-button">2</button>
-                        <button id="three" className="number-button">3</button>
-                        <button id="addition" className="equation-button">+</button>
+                        <button className="number-button key-1">1</button>
+                        <button className="number-button key-2">2</button>
+                        <button className="number-button key-3">3</button>
+                        <button className="equation-button key-plus">+</button>
                 </div>
                 <div className='button-row row-1'>
-                        <button id="doubleZero" className="number-button">00</button>
-                        <button id="zero" className="number-button">0</button>
-                        <button id="dot" className="number-button">.</button>
-                        <button id="equals" className="total-button">=</button>
+                        <button id="00" className="number-button">00</button>
+                        <button className="number-button key-0">0</button>
+                        <button id="." className="number-button key-.">.</button>
+                        <button id="=" className="total-button key-equals key-enter">=</button>
                 </div>
         </div>
         )
