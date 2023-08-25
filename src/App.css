@@ -57,6 +57,7 @@ body{
     flex-direction: column;
     align-items: flex-end;
     padding: 5px;
+    overflow-x: auto;
 }
 .previous__value{
     font-size: 20px;
