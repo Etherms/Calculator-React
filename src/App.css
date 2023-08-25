@@ -103,6 +103,8 @@ button{
     font-weight: 700;
     box-shadow: 0 5px 1px 0 var(--button--bg-accent);
     color: var(--button-color);
+    outline: none;
+    user-select: none;
 }
 .equation-button{
     background: var(--button-eqtn-bg);
@@ -114,4 +116,9 @@ button{
     background: var(--button-eql-bg);
     color: var(--other-button-color);
     box-shadow: 0 5px 1px 0 var(--button-eql-accent-bg);
+}
+.button-key:active{
+    box-shadow: none;
+    transform: translateY(5px);
+    transition: all  0.3s;
 }
