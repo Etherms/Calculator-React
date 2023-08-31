@@ -22,11 +22,11 @@ function App() {
       setDisplayedValue('');
     } else if (value === '%') {
       setDisplayedValue(displayedValue + value);
-    } else if (['÷', 'X', '+', '-'].includes(value)) {
+    } else if (['÷', 'x', '+', '-'].includes(value)) {
       setTotalValue(totalValue + displayedValue);
       setDisplayedValue(displayedValue + value);
     } else if (value === '=') {
-      const operators = ['+', '-', 'X', '÷', '%'];
+      const operators = ['+', '-', 'x', '÷', '%'];
       const operatorSymbol = operators.find(op => displayedValue.includes(op));
 
       if (operatorSymbol) {
@@ -40,7 +40,7 @@ function App() {
           case '-':
             result = parseFloat(leftOperand) - parseFloat(rightOperand);
             break;
-          case 'X':
+          case 'x':
             result = parseFloat(leftOperand) * parseFloat(rightOperand);
             break;
           case '÷':

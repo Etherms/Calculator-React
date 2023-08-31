@@ -2,16 +2,17 @@
     --background-color: #d9d9d9;
     --other-button-color:#F2EDE9;
     --button-color:#0C7382;
+    --eql-color:#F2EDE9;
     --c-value-color:#35352c;
-    --t-value-color:rgb(166, 157, 145);
+    --t-value-color:#a69d91;
     --value-background:#ededed;
     --button-container-background:#d1cccc;
-    --button-bg:#D6D6D6;
-    --button--bg-accent:hsl(0, 1%, 60%);
+    --button-bg:#FFFFFF;
+    --button--bg-accent:#9a9898;
     --button-eqtn-bg:#0c7383;
-    --button-eqtn-accent-bg:hsl(188, 83%, 20%);
+    --button-eqtn-accent-bg:#09525d;
     --button-eql-bg:#A63838;
-    --button-eql-accent-bg:hsl(0, 50%, 36%);
+    --button-eql-accent-bg:#8a2e2e;
 
 }
 *{
@@ -26,7 +27,7 @@ body{
     display: flex;
     justify-content: center;
 }
-.calculator-continer{
+.calculator-container{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -39,13 +40,67 @@ body{
 .header{
     display: flex;
     justify-content: space-between;
+    width: 380px;
+    margin-top: 50px;
 }
 .header__title{
     font-size: 25px;
     font-family: "Roboto","sans-serif";
     font-weight: 500;
-    color: var(--text-color1);
+    color: var(--c-value-color);
 }
+.theme{
+    display: flex;
+    align-items: center;
+}
+.theme__text{
+    font-family: "Roboto","sans-serif";
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--c-value-color);
+}
+.theme__container{
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+}
+.upper-container{
+    display: flex;
+    justify-content: space-evenly;
+}
+.upper-container label{
+    margin: 0 4px;
+    font-family: "Roboto","sans-serif";
+    font-size: 13px;
+    color: var(--c-value-color);
+}
+.lower-container{
+    background: #a0a0a0;
+    border-radius: 9px;
+    display: flex;
+    justify-content: space-between;
+    width: 60px;
+    position: relative;
+    padding: 3px 2px;
+}
+.lower-container input {
+    opacity: 1;
+    position: relative;
+    z-index: 1; 
+    cursor: pointer;
+}
+
+
+/* .lower-container::before{
+    content: "";
+    width: 13px;
+    height: 13px;
+    background: var(--button-color);
+    border-radius: 10px;
+    position: absolute;
+    z-index: 2;
+} */
+
 /* Value */
 .value-container{
     background: var(--value-background);
@@ -57,8 +112,11 @@ body{
     flex-direction: column;
     align-items: flex-end;
     padding: 5px;
+    width: 380px;
+    max-width: 380px;
     overflow-x: auto;
 }
+
 .previous__value{
     font-size: 20px;
     font-weight: 700;
@@ -71,6 +129,9 @@ body{
     font-weight: 700;
     font-family: "Roboto","sans-serif";
     color: var(--c-value-color);
+    max-width: 375px;
+    overflow: auto;
+    white-space: nowrap;
 }
 
 .settings-icon{
@@ -89,6 +150,7 @@ body{
     justify-content: center;
     padding: 10px;
     border-radius: 5px;
+    width: 380px;
 }
 .button-row{
     display: flex;
@@ -102,6 +164,7 @@ button{
     font-size: 23px;
     font-family: Roboto,"sans-serif";
     font-weight: 700;
+    background: var(--button-bg);
     box-shadow: 0 5px 1px 0 var(--button--bg-accent);
     color: var(--button-color);
     outline: none;
@@ -115,7 +178,7 @@ button{
 }
 .total-button{
     background: var(--button-eql-bg);
-    color: var(--other-button-color);
+    color: var(--eql-color);
     box-shadow: 0 5px 1px 0 var(--button-eql-accent-bg);
 }
 .button-key:active{
