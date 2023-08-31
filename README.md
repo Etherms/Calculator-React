@@ -1,8 +1,17 @@
-# React + Vite
+<h1>React Made Calculator</h1>
+<p>This a Calculator Website that Is made using React</p>
+<br>
+<p>Technologies used with this website</p>
+<ul>
+    <li>React</li>
+    <li>NPM</li>
+    <li>Vite</li>
+<ul>
+<img src="./public/images/Calculator White Theme.png">
+<img src="./public/images/Calculator 2.png">
+<img src="./public/images/Calculator 3.png">
+<img src="./public/images/Calculator 4.png">
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<p>Built and designed by Edson Hermosa</p>
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<p>Copyright © 2023 All Rights Reserved</p>
