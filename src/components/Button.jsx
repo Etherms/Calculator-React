@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import React from 'react'
+import PropTypes from "prop-types";
 
 
 const Button = ({ onClick }) => {
@@ -111,5 +111,8 @@ return(
                 </div>
         </div>
         )
+};
+Button.propTypes = {
+  onClick: PropTypes.func.isRequired,
 };
 export default Button;

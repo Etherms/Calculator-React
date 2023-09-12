@@ -1,5 +1,5 @@
 
-import { useEffect, React } from "react";
+import { useEffect } from "react";
 
 export default function Header(){
 

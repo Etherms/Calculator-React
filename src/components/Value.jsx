@@ -1,5 +1,10 @@
-import React from "react";
+import PropTypes from "prop-types";
 
+Value.propTypes = {
+    displayedValue: PropTypes.string.isRequired,
+    totalValue: PropTypes.string.isRequired,
+  };
+  
 export default function Value({ displayedValue, totalValue }) {
     const formattedDisplayedValue = displayedValue ? displayedValue.toLocaleString() : "0";
     const formattedTotalValue = totalValue ? totalValue.toLocaleString() : "0";
@@ -13,3 +18,4 @@ export default function Value({ displayedValue, totalValue }) {
         </div>
     );
 }
+
